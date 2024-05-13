@@ -51,11 +51,11 @@ export default function AddMoviePage() {
   return (
     <div>
         <div className='mt-5 p-5 container' style={{height: "100vh"}}>
-            <h2 className='mt-4'>Film Ekle</h2>
+            <h2 className='mt-4'>Add Movie</h2>
             <hr />
 
             <h5 className='my-4'>
-                Film bilgilerini eksiksiz olarak doldur ve filmin oyuncularını seçmek için ilerle.
+                Fill in the movie information completely and proceed to choose the actors of the movie.
             </h5>
 
             <Formik 
@@ -91,24 +91,24 @@ export default function AddMoviePage() {
                 <Form>
                 <div class="form-floating mb-3">
                     <KaanKaplanTextInput  type="text" name='movieName' class="form-control" id="floatingInput" placeholder="Film İsmi" />
-                    <label for="floatingInput">Filmin İsmi</label>
+                    <label for="floatingInput">Movie Name</label>
                 </div>
                 <div class="form-floating mb-3">
                     <KaanKaplanTextArea name='description' class="form-control" id="floatingPassword" placeholder="Özet" />
-                    <label for="floatingPassword">Filmin Özeti</label>
+                    <label for="floatingPassword">Summary of the film</label>
                 </div>
                 <div class="form-floating mb-3">
                     <KaanKaplanTextInput  name='duration' type="number" class="form-control" id="duration" placeholder="Süre" />
-                    <label for="duration">Filmin Süresi</label>
+                    <label for="duration">Movie Duration</label>
                 </div>
                 <div class="form-floating mb-3">
                     <KaanKaplanTextInput name='releaseDate' type="date" class="form-control" id="releaseDate" placeholder="Vizyon Tarihi" />
-                    <label for="releaseDate">Vizyon Tarihi</label>
+                    <label for="releaseDate">Vision date</label>
                 </div>
                 
                 <div class="form-floating mb-3">
                     <KaanKaplanTextInput name='trailerUrl' type="text" class="form-control" id="trailerUrl" placeholder="Fragman Url" />
-                    <label for="trailerUrl">Fragman Url</label>
+                    <label for="trailerUrl">Trailer Url</label>
                 </div>
 
                 <div class="form-floating mb-3">
@@ -120,7 +120,7 @@ export default function AddMoviePage() {
                             {key: category?.categoryId, text:category?.categoryName, value: category?.categoryName}
                         ))}
                     />
-                    <label for="categoryId">Kategori</label>
+                    <label for="categoryId">Category</label>
                 </div>  
                 <div class="form-floating mb-3">
                     <KaanKaplanSelect
@@ -132,19 +132,19 @@ export default function AddMoviePage() {
                         ))}
                     />
                     
-                    <label for="directorId">Yönetmen</label>
+                    <label for="directorId">Director</label>
                 </div>
 
-                <p>Yönetmen yukarıdaki listede bulunmuyorsa lütfen yazın.</p>
+                <p>If the director is not listed above, please write.</p>
                 <div class="form-floating mb-3">
                     <KaanKaplanTextInput name='directorName' type="text" class="form-control" id="directorName" placeholder="Yönetmen İsmi" />
-                    <label for="directorName">Yönetmen İsmi</label>
+                    <label for="directorName">Director Name</label>
                 </div>
 
                 <div class="form-check mb-3 text-start">
                     <KaanKaplanCheckBox name="isInVision" class="form-check-input" type="checkbox" id="isInVision" />
                     <label class="form-check-label" for="isInVision">
-                        Film Vizyonda Mı?
+                    Is the Movie Released?
                     </label>
                 </div>
               

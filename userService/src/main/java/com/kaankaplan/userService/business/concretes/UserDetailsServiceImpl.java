@@ -27,6 +27,14 @@ public class UserDetailsServiceImpl  implements UserDetailsService {
         }
 
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        System.out.println(user.getClaim());
+//        System.out.println(user.getClaim().getClaimName());
+        if(user.getClaim() == null) {
+            throw new UsernameNotFoundException("Ma Cha may");
+        }
+        if(user.getClaim().getClaimName() == null) {
+            throw new UsernameNotFoundException("Ma Cha may 2");
+        }
         authorities.add(new SimpleGrantedAuthority(user.getClaim().getClaimName()));
 
         return new org.springframework.security.core.userdetails.User(

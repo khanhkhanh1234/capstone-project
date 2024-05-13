@@ -57,7 +57,7 @@ export default function AddActorsAndCityToMovie() {
   return (
     <div>
         <div className='mt-5 p-5 container' style={{height: "100vh"}}>
-            <h2 className='mt-4'>Film Ekle</h2>
+            <h2 className='mt-4'>Add Movie</h2>
             <hr />
 
             <h5 className='my-4'>

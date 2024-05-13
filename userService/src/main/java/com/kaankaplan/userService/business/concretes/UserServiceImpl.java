@@ -43,6 +43,7 @@ public class UserServiceImpl implements UserService {
                         .fullName(userRegisterRequestDto.getCustomerName())
                         .claim(claim)
                         .build();
+        System.out.println(user);
         userDao.insert(user);
     }
 

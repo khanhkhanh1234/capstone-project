@@ -1,1 +1,7 @@
 movieService/target
+api-gateway/target
+userService/target
+emailService/target
+eureka-server/target
+frontend/node_modules
+frontend/dist

@@ -20,5 +20,6 @@ public class ActorImage {
     private String imageUrl;
 
     @OneToOne
+    @JoinColumn(name = "actor_id")
     private Actor actor;
 }

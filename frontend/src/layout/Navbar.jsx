@@ -37,7 +37,7 @@ export default function Navbar() {
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto align-items-center">
                         {userFromRedux?.roles[0] === "ADMIN" ? 
-                            <li class="nav-item"><a class="nav-link" href="#!" onClick={() => navigate("/addMovie")}>Film Ekle</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#!" onClick={() => navigate("/addMovie")}>Add Movie</a></li>
                         : null}
 
                         <li class="nav-item"><a class="nav-link" href="#!"

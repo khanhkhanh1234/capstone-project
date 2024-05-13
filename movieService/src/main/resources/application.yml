@@ -8,7 +8,7 @@ spring:
   datasource:
     username: 'postgres'
     url: jdbc:postgresql://localhost:5432/cine_vision
-    password: '12345'
+    password: '12345678'
     driver-class-name: org.postgresql.Driver
   jpa:
     properties:

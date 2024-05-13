@@ -54,6 +54,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.springframework.security</groupId>-->
+<!--                    <artifactId>spring-security-core</artifactId>-->
+<!--                </exclusion>-->
+<!--                &lt;!&ndash; Add more exclusions if needed &ndash;&gt;-->
+<!--            </exclusions>-->
         </dependency>
 
         <dependency>
@@ -86,6 +93,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-sleuth-zipkin</artifactId>
         </dependency>
+
     </dependencies>
 
 
