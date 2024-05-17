@@ -13,8 +13,9 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - postgres
+      - backend
     restart: unless-stopped
+
   mongodb:
     container_name: mongodb
     image: mongo
@@ -25,6 +26,7 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=rootuser
       - MONGO_INITDB_ROOT_PASSWORD=rootpass
+
   mongo-express:
     container_name: mongo-express
     image: mongo-express
@@ -41,6 +43,7 @@ services:
     image: wurstmeister/zookeeper
     ports:
       - "2181:2181"
+
   kafka:
     container_name: kafka
     image: wurstmeister/kafka
@@ -49,7 +52,6 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: localhost
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
-
     depends_on:
       - zookeeper
 
@@ -63,6 +65,7 @@ services:
       - "8181:8080"
     command:
       - start-dev
+
   zipkin:
     container_name: zipkin
     image: openzipkin/zipkin
@@ -75,11 +78,84 @@ services:
     ports:
       - "6379:6379"
 
+  eureka-server:
+    container_name: eureka-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: app_eureka_server
+      args:
+        SERVICE_NAME_EUREKA_SERVER: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - backend
+
+  api-gateway:
+    container_name: api-gateway
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: app_api_gateway
+      args:
+        SERVICE_NAME_API_GATEWAY: api-gateway
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+
+  email-service:
+    container_name: email-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: app_email_service
+      args:
+        SERVICE_NAME_EMAIL_SERVICE: emailService
+    ports:
+      - "8081:8888"
+    networks:
+      - backend
+  
+  movie-service:
+    container_name: movie-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: app_movie_service
+      args:
+        SERVICE_NAME_MOVIE_SERVICE: movieService
+    ports:
+      - "8085:8889"
+    networks:
+      - backend
+  user-service:
+    container_name: user-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: app_user_service
+      args:
+        SERVICE_NAME_USER_SERVICE: userService
+    ports:
+      - "8086:8890"
+    networks:
+      - backend
+  frontend-service:
+    container_name: frontend-service
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: app_frontend
+    ports:
+      - "3000:80"
+    networks:
+      - backend
+
 networks:
-  postgres:
+  backend:
     driver: bridge
-#  default:
-#    name: mongodb_network
+    
 volumes:
   postgres:
   data:

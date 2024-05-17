@@ -11,7 +11,7 @@ spring:
       password: rootpass
       database: user
       port: 27017
-      host: localhost
+      host: mongodb
       auto-index-creation: true
   ## Zipkin and Sleuth Properties
   zipkin:
