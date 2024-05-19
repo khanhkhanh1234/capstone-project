@@ -26,6 +26,8 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=rootuser
       - MONGO_INITDB_ROOT_PASSWORD=rootpass
+    networks:
+      - backend
 
   mongo-express:
     container_name: mongo-express
@@ -37,12 +39,16 @@ services:
       - ME_CONFIG_MONGODB_ADMINUSERNAME=rootuser
       - ME_CONFIG_MONGODB_ADMINPASSWORD=rootpass
       - ME_CONFIG_MONGODB_SERVER=mongodb
+    networks:
+      - backend
 
   zookeeper:
     container_name: zookeeper
     image: wurstmeister/zookeeper
     ports:
       - "2181:2181"
+    networks:
+      - backend
 
   kafka:
     container_name: kafka
@@ -54,6 +60,8 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
     depends_on:
       - zookeeper
+    networks:
+      - backend
 
   keycloak:
     container_name: keycloak
@@ -62,21 +70,27 @@ services:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin
     ports:
-      - "8181:8080"
+      - "8181:8081"
     command:
       - start-dev
+    networks:
+      - backend
 
   zipkin:
     container_name: zipkin
     image: openzipkin/zipkin
     ports:
       - "9411:9411"
+    networks:
+      - backend
 
   redis:
     container_name: redis
     image: redis
     ports:
       - "6379:6379"
+    networks:
+      - backend
 
   eureka-server:
     container_name: eureka-server
@@ -90,6 +104,16 @@ services:
       - "8761:8761"
     networks:
       - backend
+    depends_on:
+      - postgres
+      - mongodb
+      - mongo-express
+      - zookeeper
+      - kafka
+      - keycloak
+      - zipkin
+      - redis
+
 
   api-gateway:
     container_name: api-gateway
@@ -103,6 +127,16 @@ services:
       - "8080:8080"
     networks:
       - backend
+    depends_on:
+      - postgres
+      - mongodb
+      - mongo-express
+      - zookeeper
+      - kafka
+      - keycloak
+      - zipkin
+      - redis
+      - eureka-server
 
   email-service:
     container_name: email-service
@@ -113,10 +147,20 @@ services:
       args:
         SERVICE_NAME_EMAIL_SERVICE: emailService
     ports:
-      - "8081:8888"
+      - "8888:8888"
     networks:
       - backend
-  
+    depends_on:
+      - api-gateway
+      - postgres
+      - mongodb
+      - mongo-express
+      - zookeeper
+      - kafka
+      - keycloak
+      - zipkin
+      - redis
+      - eureka-server
   movie-service:
     container_name: movie-service
     build:
@@ -129,6 +173,18 @@ services:
       - "8085:8889"
     networks:
       - backend
+    depends_on:
+      - postgres
+      - api-gateway
+      - mongodb
+      - mongo-express
+      - zookeeper
+      - kafka
+      - keycloak
+      - zipkin
+      - redis
+      - eureka-server
+
   user-service:
     container_name: user-service
     build:
@@ -141,6 +197,18 @@ services:
       - "8086:8890"
     networks:
       - backend
+    depends_on:
+      - mongodb
+      - api-gateway
+      - postgres
+      - mongo-express
+      - zookeeper
+      - kafka
+      - keycloak
+      - zipkin
+      - redis
+      - eureka-server
+
   frontend-service:
     container_name: frontend-service
     build:
@@ -151,6 +219,17 @@ services:
       - "3000:80"
     networks:
       - backend
+    depends_on:
+      - api-gateway
+      - postgres
+      - mongodb
+      - mongo-express
+      - zookeeper
+      - kafka
+      - keycloak
+      - zipkin
+      - redis
+      - eureka-server
 
 networks:
   backend:
