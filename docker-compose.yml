@@ -200,10 +200,10 @@ services:
     depends_on:
       - mongodb
       - api-gateway
-      - postgres
+      - postgres # Service TCP
       - mongo-express
       - zookeeper
-      - kafka
+      - kafka # NodePort
       - keycloak
       - zipkin
       - redis

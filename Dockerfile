@@ -87,5 +87,3 @@ WORKDIR /run
 ARG SERVICE_NAME_USER_SERVICE
 COPY --from=build_user_service /app/$SERVICE_NAME_USER_SERVICE/target/user-service-1.0-SNAPSHOT.jar /run/user-service-1.0-SNAPSHOT.jar
 CMD ["java", "-jar", "/run/user-service-1.0-SNAPSHOT.jar"]
-
-
