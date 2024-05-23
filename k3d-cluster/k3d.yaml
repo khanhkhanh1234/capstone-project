@@ -1,0 +1,62 @@
+
+kind: Simple
+apiVersion: k3d.io/v1alpha4
+metadata:
+  name: local
+image: rancher/k3s:v1.24.4-k3s1
+subnet: "172.28.0.0/16"
+servers: 1
+agents: 2
+# options:
+#   k3s:
+#     extraArgs:
+#       - arg: "--disable=traefik"
+#         nodeFilters:
+#           - "server:*"
+# registries:
+#   create:
+#     name: registry.local
+#     host: "0.0.0.0"
+#     hostPort: "5000"
+#     image: docker.io/library/registry:2
+#     volumes:
+#       - /tmp/reg:/var/lib/registry
+#     # proxy:
+#     #   remoteURL: https://registry-1.docker.io # proxy DockerHub
+#   config: | # Tell k3s to use the local registry
+#     mirrors:
+#       "docker.io":
+#         endpoint:
+#           - "http://registry.local:5000"
+# Mapports is used to expose ports from the cluster to the host machine
+ports:
+  - port: 0.0.0.0:80:80
+    nodeFilters:
+      - loadbalancer
+  - port: 0.0.0.0:443:443
+    nodeFilters:
+      - loadbalancer
+  - port: 0.0.0.0:8080:8080
+    nodeFilters:
+      - loadbalancer
+  - port: 0.0.0.0:8900:30080
+    nodeFilters:
+      - agent:0:direct
+  - port: 0.0.0.0:8901:30080
+    nodeFilters:
+      - agent:0:direct
+
+    # Rancher Server
+  - port: 0.0.0.0:8902:30081
+    nodeFilters:
+      - agent:0:direct
+
+    # Kafka
+  - port: 0.0.0.0:9092:9092
+    nodeFilters:
+      - agent:0:direct
+
+    # ArgoCD server
+  - port: 0.0.0.0:9121:9121
+    nodeFilters:
+      - agent:0:direct

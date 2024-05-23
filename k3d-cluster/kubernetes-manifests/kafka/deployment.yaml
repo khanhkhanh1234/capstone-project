@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka
+  template:
+    metadata:
+      labels:
+        app: kafka
+    spec:
+      containers:
+      - name: kafka
+        image: wurstmeister/kafka
+        env:
+        - name: KAFKA_ADVERTISED_HOST_NAME
+          value: "localhost"
+        - name: KAFKA_ZOOKEEPER_CONNECT
+          value: "zookeeper:2181"
+        ports:
+        - containerPort: 9092
+      initContainers:
+      - name: init-kafka
+        image: busybox
+        command: ['sh', '-c', 'until nslookup zookeeper; do echo waiting for zookeeper; sleep 2; done;']
