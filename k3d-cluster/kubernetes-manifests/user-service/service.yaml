@@ -3,8 +3,10 @@ kind: Service
 metadata:
   name: user-service
 spec:
+  type: NodePort
   ports:
-  - port: 8086
+  - port: 8890
     targetPort: 8890
+    nodePort: 30005
   selector:
     app: user-service
