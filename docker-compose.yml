@@ -18,7 +18,7 @@ services:
 
   mongodb:
     container_name: mongodb
-    image: mongo
+    image: mongo:4.4
     ports:
       - "27017:27017"
     volumes:
@@ -113,8 +113,6 @@ services:
       - keycloak
       - zipkin
       - redis
-
-
   api-gateway:
     container_name: api-gateway
     build:
