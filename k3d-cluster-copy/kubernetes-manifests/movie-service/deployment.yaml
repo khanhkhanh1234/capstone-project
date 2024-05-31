@@ -16,4 +16,4 @@ spec:
       - name: movie-service
         image: quockhanh107/movie-service:latest
         ports:
-        - containerPort: 8889
+        - containerPort: 8888

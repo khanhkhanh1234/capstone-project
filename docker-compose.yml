@@ -145,7 +145,7 @@ services:
       args:
         SERVICE_NAME_EMAIL_SERVICE: emailService
     ports:
-      - "8888:8888"
+      - "9000:9000"
     networks:
       - backend
     depends_on:
@@ -168,7 +168,7 @@ services:
       args:
         SERVICE_NAME_MOVIE_SERVICE: movieService
     ports:
-      - "8085:8889"
+      - "9001:9001"
     networks:
       - backend
     depends_on:
@@ -192,7 +192,7 @@ services:
       args:
         SERVICE_NAME_USER_SERVICE: userService
     ports:
-      - "8086:8890"
+      - "9002:9002"
     networks:
       - backend
     depends_on:

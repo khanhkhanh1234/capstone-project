@@ -9,7 +9,7 @@ agents: 2
 options:
   k3s:
     extraArgs:
-      - arg: "--service-node-port-range=8079-31000"
+      - arg: "--service-node-port-range=2500-40000"
         nodeFilters:
           - "server:*"
 # registries:
