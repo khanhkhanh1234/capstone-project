@@ -27,6 +27,8 @@ eureka:
       defaultZone: http://eureka:password@eureka-server:8761/eureka
     fetch-registry: true
     register-with-eureka: true
+  instance:
+    prefer-ip-address: true
 
 # JWT properties
 jwt:
