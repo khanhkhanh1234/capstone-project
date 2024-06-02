@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.apiGateway.deploymentName }}
+spec:
+  replicas: {{ .Values.apiGateway.replicaCount }}
+  selector:
+    matchLabels:
+      app: api-gateway
+  template:
+    metadata:
+      labels:
+        app: api-gateway
+    spec:
+      containers:
+      - name: api-gateway
+        image: {{ .Values.apiGateway.image }}
+        ports:
+        - containerPort: {{ .Values.apiGateway.containerPort }}
+        env:
+        - name: JAVA_OPTS
+          value: "{{ .Values.apiGateway.javaOpts }}"
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.emailService.deploymentName }}
+spec:
+  replicas: {{ .Values.emailService.replicaCount }}
+  selector:
+    matchLabels:
+      app: email-service
+  template:
+    metadata:
+      labels:
+        app: email-service
+    spec:
+      containers:
+      - name: email-service
+        image: {{ .Values.emailService.image }}
+        ports:
+        - containerPort: {{ .Values.emailService.containerPort }}
+{{- if .Files.Get "api-gateway/api-gateway-hpa.yaml" }}
+{{ .Files.Get "api-gateway/api-gateway-hpa.yaml" | indent 4 }}
+{{- end }}
+
+

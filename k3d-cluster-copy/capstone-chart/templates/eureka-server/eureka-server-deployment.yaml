@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.eurekaServer.deploymentName }}
+spec:
+  replicas: {{ .Values.eurekaServer.replicaCount }}
+  selector:
+    matchLabels:
+      app: eureka-server
+  template:
+    metadata:
+      labels:
+        app: eureka-server
+    spec:
+      containers:
+      - name: eureka-server
+        image: {{ .Values.eurekaServer.image }}
+        ports:
+        - containerPort: {{ .Values.eurekaServer.containerPort }}
+        env:
+        - name: JAVA_OPTS
+          value: "{{ .Values.eurekaServer.javaOpts }}"
+{{- if .Files.Get "eureka-server/eureka-server-hpa.yaml" }}
+{{ .Files.Get "eureka-server/eureka-server-hpa.yaml" | indent 8 }}
+{{- end }}

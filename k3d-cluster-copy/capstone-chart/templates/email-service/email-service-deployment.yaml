@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.emailService.deploymentName }}
+spec:
+  replicas: {{ .Values.emailService.replicaCount }}
+  selector:
+    matchLabels:
+      app: email-service
+  template:
+    metadata:
+      labels:
+        app: email-service
+    spec:
+      containers:
+      - name: email-service
+        image: {{ .Values.emailService.image }}
+        ports:
+        - containerPort: {{ .Values.emailService.containerPort }}
+{{- if .Files.Get "email-service/email-service-hpa.yaml" }}
+{{ .Files.Get "email-service/email-service-hpa.yaml" | indent 4 }}
+{{- end }}
+

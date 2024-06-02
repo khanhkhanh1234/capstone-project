@@ -96,3 +96,109 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+mongodb:
+  replicaCount: 1
+  image: mongo:4.4
+  rootUsername: rootuser
+  rootPassword: rootpass
+  containerPort: 27017
+  serviceName: mongodb
+  servicePort: 27017
+
+postgres:
+  deploymentName: postgres
+  replicaCount: 1
+  image: postgres
+  username: postgres
+  password: 12345
+  database: cine_vision
+  containerPort: 5432
+  serviceName: postgres
+  servicePort: 5432
+  pgdata: /var/lib/postgresql/data/pgdata
+
+apiGateway:
+  deploymentName: api-gateway
+  replicaCount: 1
+  image: quockhanh107/api-gateway:latest
+  containerPort: 8080
+  javaOpts: "-Deureka.instance.preferIpAddress=true"
+  serviceName: api-gateway
+  serviceType: NodePort
+  servicePort: 8080
+  nodePort: 30000
+  hpaName: api-gateway-hpa
+  hpaMinReplicas: 1
+  hpaMaxReplicas: 5
+  hpaCpuUtilization: 50
+
+emailService:
+  deploymentName: email-service
+  replicaCount: 1
+  image: quockhanh107/email-service:latest
+  containerPort: 8888
+  serviceName: email-service
+  serviceType: NodePort
+  servicePort: 8888
+  nodePort: 30003
+  hpaName: email-service-hpa
+  hpaMinReplicas: 1
+  hpaMaxReplicas: 5
+  hpaCpuUtilization: 50
+
+eurekaServer:
+  deploymentName: eureka-server
+  replicaCount: 1
+  image: quockhanh107/eureka-server:latest
+  containerPort: 8761
+  javaOpts: "-Deureka.instance.preferIpAddress=true"
+  serviceName: eureka-server
+  serviceType: NodePort
+  servicePort: 8761
+  nodePort: 30001
+  hpaName: eureka-server-hpa
+  hpaMinReplicas: 1
+  hpaMaxReplicas: 5
+  hpaCpuUtilization: 50
+
+
+frontend:
+  deploymentName: frontend
+  replicaCount: 1
+  image: quockhanh107/frontend-service:latest
+  containerPort: 80
+  serviceName: frontend-service
+  servicePort: 80
+  nodePort: 30000
+
+movieService:
+  deploymentName: movie-service
+  replicaCount: 1
+  image: quockhanh107/movie-service:latest
+  containerPort: 8888
+  serviceName: movie-service
+  serviceType: NodePort
+  servicePort: 8888
+  nodePort: 8888
+  hpaName: movie-service-hpa
+  hpaMinReplicas: 1
+  hpaMaxReplicas: 5
+  hpaCpuUtilization: 50
+
+userService:
+  deploymentName: user-service
+  replicaCount: 1
+  image: quockhanh107/user-service:latest
+  containerPort: 8890
+  serviceName: user-service
+  servicePort: 8890
+  nodePort: 30005
+  hpaName: user-service-hpa
+  hpaMinReplicas: 1
+  hpaMaxReplicas: 5
+  hpaCpuUtilization: 50
+
+
+
+
+

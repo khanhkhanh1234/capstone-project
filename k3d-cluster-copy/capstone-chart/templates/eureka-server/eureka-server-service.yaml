@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.eurekaServer.serviceName }}
+spec:
+  type: {{ .Values.eurekaServer.serviceType }}
+  ports:
+  - port: {{ .Values.eurekaServer.servicePort }}
+    targetPort: {{ .Values.eurekaServer.containerPort }}
+    {{- if eq .Values.eurekaServer.serviceType "NodePort" }}
+    nodePort: {{ .Values.eurekaServer.nodePort }}
+    {{- end }}
+  selector:
+    app: eureka-server

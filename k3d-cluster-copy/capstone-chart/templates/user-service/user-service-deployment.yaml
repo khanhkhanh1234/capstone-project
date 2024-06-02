@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.userService.deploymentName }}
+spec:
+  replicas: {{ .Values.userService.replicaCount }}
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      containers:
+      - name: user-service
+        image: {{ .Values.userService.image }}
+        ports:
+        - containerPort: {{ .Values.userService.containerPort }}
+{{- if .Files.Get "user-service/user-service-hpa.yaml" }}
+{{ .Files.Get "user-service/user-service-hpa.yaml" | indent 8 }}
+{{- end }}
