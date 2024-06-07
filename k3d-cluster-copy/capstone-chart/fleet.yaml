@@ -1,5 +1,5 @@
 namespace: capstone-chart
 helm:
   releaseName: capstone
-  repo: https://khanhkhanh1234.github.io/capstone-project/
+  repo: https://khanhkhanh1234.github.io/capstone-project/k3d-cluster-copy/capstone-chart/index.yaml
   chart: capstone-chart
