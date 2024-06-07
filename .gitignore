@@ -10,3 +10,4 @@ k3d/vagrant/master/.vagrant
 k3d/vagrant/worker1/.vagrant
 k3d/vagrant/worker2/.vagrant
 k3d-cluster/.vagrant
+k3d-cluster-copy/foster-enclave.ovpn
