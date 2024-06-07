@@ -3,7 +3,8 @@ helm:
   releaseName: capstone
   repo: https://khanhkhanh1234.github.io/capstone-project/k3d-cluster-copy/capstone-chart/index.yaml
   chart: capstone-chart
-  clusterLabel:
+
+  clusterSelector:
     matchLabels:
       name: local
       provider.cattle.io: k3s
