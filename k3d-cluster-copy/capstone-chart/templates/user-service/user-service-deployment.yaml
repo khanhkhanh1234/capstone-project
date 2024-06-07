@@ -17,6 +17,12 @@ spec:
         image: {{ .Values.userService.image }}
         ports:
         - containerPort: {{ .Values.userService.containerPort }}
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "300m"
+            
 {{- if .Files.Get "user-service/user-service-hpa.yaml" }}
 {{ .Files.Get "user-service/user-service-hpa.yaml" | indent 8 }}
 {{- end }}

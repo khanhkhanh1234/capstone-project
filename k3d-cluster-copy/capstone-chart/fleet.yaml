@@ -1,0 +1,5 @@
+namespace: fleet-local
+helm:
+  releaseName: capstone
+  repo: https://github.com/khanhkhanh1234/fleet-capstone/blob/main/capstone-chart-0.1.0.tgz
+  chart: capstone-chart

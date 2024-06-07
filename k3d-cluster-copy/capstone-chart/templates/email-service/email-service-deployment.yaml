@@ -17,6 +17,12 @@ spec:
         image: {{ .Values.emailService.image }}
         ports:
         - containerPort: {{ .Values.emailService.containerPort }}
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "300m"
+      
 {{- if .Files.Get "email-service/email-service-hpa.yaml" }}
 {{ .Files.Get "email-service/email-service-hpa.yaml" | indent 4 }}
 {{- end }}

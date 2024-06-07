@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  capstone-chart:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2024-06-05T13:49:14.325664076Z"
+    description: A Helm chart for Capstone project
+    digest: 0733014e4be96693ef0db9db4f86276f38e5180e26b28b9cec78536af362020e
+    name: capstone-chart
+    type: application
+    urls:
+    - https://khanhkhanh1234.github.io/fleet-capstone/capstone-chart-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-06-05T13:49:14.299813702Z"
