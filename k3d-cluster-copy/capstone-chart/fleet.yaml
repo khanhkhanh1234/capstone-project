@@ -1,5 +1,5 @@
 namespace: capstone-chart
 helm:
   releaseName: capstone
-  repo: https://github.com/khanhkhanh1234/capstone-project
+  repo: https://khanhkhanh1234.github.io/capstone-project/
   chart: capstone-chart
