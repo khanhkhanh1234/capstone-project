@@ -1,5 +1,5 @@
-namespace: fleet-local
+namespace: casptone-chart
 helm:
   releaseName: capstone
-  repo: https://github.com/khanhkhanh1234/fleet-capstone/blob/main/capstone-chart-0.1.0.tgz
+  repo: https://github.com/khanhkhanh1234/capstone-project/blob/feat/helm-package/k3d-cluster-copy/capstone-chart/charts/capstone-chart-0.1.0.tgz
   chart: capstone-chart
