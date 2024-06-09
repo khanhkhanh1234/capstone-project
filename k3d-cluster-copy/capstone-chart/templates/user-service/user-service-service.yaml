@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.userService.serviceName }}
+  name: '{{ .Values.userService.serviceName }}'
 spec:
   type: NodePort
   ports:

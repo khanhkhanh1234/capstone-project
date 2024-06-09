@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.emailService.serviceName }}
+  name: '{{ .Values.emailService.serviceName }}'
 spec:
-  type: {{ .Values.emailService.serviceType }}
+  type: '{{ .Values.emailService.serviceType }}'
   ports:
   - port: {{ .Values.emailService.servicePort }}
     targetPort: {{ .Values.emailService.containerPort }}

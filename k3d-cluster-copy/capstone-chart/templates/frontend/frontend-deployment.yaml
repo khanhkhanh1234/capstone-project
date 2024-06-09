@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.frontend.deploymentName }}
+  name: '{{ .Values.frontend.deploymentName }}'
 spec:
-  replicas: {{ .Values.frontend.replicaCount }}
+  replicas: '{{ .Values.frontend.replicaCount }}'
   selector:
     matchLabels:
       app: frontend
@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: {{ .Values.frontend.image }}
+        image: '{{ .Values.frontend.image }}'
         ports:
         - containerPort: {{ .Values.frontend.containerPort }}

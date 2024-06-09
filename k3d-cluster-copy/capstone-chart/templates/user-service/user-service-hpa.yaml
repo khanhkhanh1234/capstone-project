@@ -1,18 +1,18 @@
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ .Values.userService.hpaName }}
+  name: '{{ .Values.userService.hpaName }}'
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ .Values.userService.deploymentName }}
-  minReplicas: {{ .Values.userService.hpaMinReplicas }}
-  maxReplicas: {{ .Values.userService.hpaMaxReplicas }}
+    name: '{{ .Values.userService.deploymentName }}'
+  minReplicas: '{{ .Values.userService.hpaMinReplicas }}'
+  maxReplicas: '{{ .Values.userService.hpaMaxReplicas }}'
   metrics:
   - type: Resource
     resource:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: {{ .Values.userService.hpaCpuUtilization }}
+        averageUtilization: '{{ .Values.userService.hpaCpuUtilization }}'

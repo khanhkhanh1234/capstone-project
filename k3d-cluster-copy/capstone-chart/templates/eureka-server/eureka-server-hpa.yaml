@@ -1,18 +1,18 @@
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ .Values.eurekaServer.hpaName }}
+  name: '{{ .Values.eurekaServer.hpaName }}'
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ .Values.eurekaServer.deploymentName }}
-  minReplicas: {{ .Values.eurekaServer.hpaMinReplicas }}
-  maxReplicas: {{ .Values.eurekaServer.hpaMaxReplicas }}
+    name: '{{ .Values.eurekaServer.deploymentName }}'
+  minReplicas: '{{ .Values.eurekaServer.hpaMinReplicas }}'
+  maxReplicas: '{{ .Values.eurekaServer.hpaMaxReplicas }}'
   metrics:
   - type: Resource
     resource:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: {{ .Values.eurekaServer.hpaCpuUtilization }}
+        averageUtilization: '{{ .Values.eurekaServer.hpaCpuUtilization }}'

@@ -1,18 +1,18 @@
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ .Values.emailService.hpaName }}
+  name: '{{ .Values.emailService.hpaName }}'
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ .Values.emailService.deploymentName }}
-  minReplicas: {{ .Values.emailService.hpaMinReplicas }}
-  maxReplicas: {{ .Values.emailService.hpaMaxReplicas }}
+    name: '{{ .Values.emailService.deploymentName }}'
+  minReplicas: '{{ .Values.emailService.hpaMinReplicas }}'
+  maxReplicas: '{{ .Values.emailService.hpaMaxReplicas }}'
   metrics:
   - type: Resource
     resource:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: {{ .Values.emailService.hpaCpuUtilization }}
+        averageUtilization: '{{ .Values.emailService.hpaCpuUtilization }}'

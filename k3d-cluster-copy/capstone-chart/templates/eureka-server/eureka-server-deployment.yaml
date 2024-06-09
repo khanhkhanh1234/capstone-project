@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.eurekaServer.deploymentName }}
+  name: '{{ .Values.eurekaServer.deploymentName }}'
 spec:
-  replicas: {{ .Values.eurekaServer.replicaCount }}
+  replicas: '{{ .Values.eurekaServer.replicaCount }}'
   selector:
     matchLabels:
       app: eureka-server
@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
       - name: eureka-server
-        image: {{ .Values.eurekaServer.image }}
+        image: '{{ .Values.eurekaServer.image }}'
         ports:
         - containerPort: {{ .Values.eurekaServer.containerPort }}
         env:
         - name: JAVA_OPTS
-          value: "{{ .Values.eurekaServer.javaOpts }}"
+          value: '{{ .Values.eurekaServer.javaOpts }}'
         resources:
           requests:
             cpu: "100m"

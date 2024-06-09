@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.userService.deploymentName }}
+  name: '{{ .Values.userService.deploymentName }}'
 spec:
-  replicas: {{ .Values.userService.replicaCount }}
+  replicas: '{{ .Values.userService.replicaCount }}'
   selector:
     matchLabels:
       app: user-service
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: user-service
-        image: {{ .Values.userService.image }}
+        image: '{{ .Values.userService.image }}'
         ports:
         - containerPort: {{ .Values.userService.containerPort }}
         resources:

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: mongodb
 spec:
-  replicas: {{ .Values.mongodb.replicaCount }}
+  replicas: '{{ .Values.mongodb.replicaCount }}'
   selector:
     matchLabels:
       app: mongodb
@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: {{ .Values.mongodb.image }}
+        image: '{{ .Values.mongodb.image }}'
         env:
         - name: MONGO_INITDB_ROOT_USERNAME
-          value: {{ .Values.mongodb.rootUsername }}
+          value: '{{ .Values.mongodb.rootUsername }}'
         - name: MONGO_INITDB_ROOT_PASSWORD
-          value: {{ .Values.mongodb.rootPassword }}
+          value: '{{ .Values.mongodb.rootPassword }}'
         ports:
         - containerPort: {{ .Values.mongodb.containerPort }}
         volumeMounts:
