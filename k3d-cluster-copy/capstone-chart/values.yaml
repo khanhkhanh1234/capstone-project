@@ -118,7 +118,7 @@ postgres:
   pgdata: /var/lib/postgresql/data/pgdata
 
 apiGateway:
-  deploymentName: api-gateway
+  deploymentName: apigateway
   replicaCount: 1
   image: quockhanh107/api-gateway:latest
   containerPort: 8080
