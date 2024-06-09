@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.apiGateway.deploymentName }}
+  name: '{{ .Values.apiGateway.deploymentName }}'
 spec:
   replicas: {{ .Values.apiGateway.replicaCount }}
   selector:
@@ -14,15 +14,14 @@ spec:
     spec:
       containers:
       - name: api-gateway
-        image: {{ .Values.apiGateway.image }}
+        image: '{{ .Values.apiGateway.image }}'
         ports:
         - containerPort: {{ .Values.apiGateway.containerPort }}
         env:
         - name: JAVA_OPTS
-          value: "{{ .Values.apiGateway.javaOpts }}"
+          value: '{{ .Values.apiGateway.javaOpts }}'
         resources:
           requests:
             cpu: "100m"
           limits:
             cpu: "500m"
-        
