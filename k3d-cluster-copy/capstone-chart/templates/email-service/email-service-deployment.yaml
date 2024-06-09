@@ -16,7 +16,7 @@ spec:
       - name: email-service
         image: '{{ .Values.emailService.image }}'
         ports:
-        - containerPort: {{ .Values.emailService.containerPort }}
+        - containerPort: '{{ .Values.emailService.containerPort }}'
         resources:
           requests:
             cpu: "100m"

@@ -64,7 +64,7 @@ spec:
       - name: movie-service
         image: '{{ .Values.movieService.image }}'
         ports:
-        - containerPort: {{ .Values.movieService.containerPort }}
+        - containerPort: '{{ .Values.movieService.containerPort }}'
         resources:
           requests:
             cpu: "100m"

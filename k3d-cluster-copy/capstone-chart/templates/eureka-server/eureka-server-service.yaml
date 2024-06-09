@@ -5,10 +5,10 @@ metadata:
 spec:
   type: '{{ .Values.eurekaServer.serviceType }}'
   ports:
-  - port: {{ .Values.eurekaServer.servicePort }}
-    targetPort: {{ .Values.eurekaServer.containerPort }}
+  - port: '{{ .Values.eurekaServer.servicePort }}'
+    targetPort: '{{ .Values.eurekaServer.containerPort }}'
     {{- if eq .Values.eurekaServer.serviceType "NodePort" }}
-    nodePort: {{ .Values.eurekaServer.nodePort }}
+    nodePort: '{{ .Values.eurekaServer.nodePort }}'
     {{- end }}
   selector:
     app: eureka-server
