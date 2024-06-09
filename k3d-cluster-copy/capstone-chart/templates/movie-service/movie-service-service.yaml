@@ -7,8 +7,6 @@ spec:
   ports:
   - port: '{{ .Values.movieService.servicePort }}'
     targetPort: '{{ .Values.movieService.containerPort }}'
-    {{- if eq .Values.movieService.serviceType "NodePort" }}
     nodePort: '{{ .Values.movieService.nodePort }}'
-    {{- end }}
   selector:
     app: movie-service
