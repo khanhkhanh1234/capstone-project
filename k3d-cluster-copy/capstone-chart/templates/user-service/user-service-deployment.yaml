@@ -22,7 +22,3 @@ spec:
             cpu: "100m"
           limits:
             cpu: "300m"
-            
-{{- if .Files.Get "user-service/user-service-hpa.yaml" }}
-{{ .Files.Get "user-service/user-service-hpa.yaml" | indent 8 }}
-{{- end }}

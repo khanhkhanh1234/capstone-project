@@ -70,7 +70,3 @@ spec:
             cpu: "100m"
           limits:
             cpu: "300m"
-{{- if .Files.Get "movie-service/movie-service-hpa.yaml" }}
-{{ .Files.Get "movie-service/movie-service-hpa.yaml" | indent 8 }}
-{{- end }}
-

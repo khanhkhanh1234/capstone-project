@@ -25,6 +25,3 @@ spec:
             cpu: "100m"
           limits:
             cpu: "300m"
-{{- if .Files.Get "eureka-server/eureka-server-hpa.yaml" }}
-{{ .Files.Get "eureka-server/eureka-server-hpa.yaml" | indent 8 }}
-{{- end }}
