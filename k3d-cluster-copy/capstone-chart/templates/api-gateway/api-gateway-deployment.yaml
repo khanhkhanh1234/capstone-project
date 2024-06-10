@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: '{{ .Values.apiGateway.deploymentName }}'
+  name: {{ .Values.apiGateway.deploymentName }}
 spec:
   replicas: '{{ .Values.apiGateway.replicaCount }}'
   selector:
@@ -16,7 +16,7 @@ spec:
       - name: api-gateway
         image: '{{ .Values.apiGateway.image }}'
         ports:
-        - containerPort: '{{ .Values.apiGateway.containerPort }}'
+        - containerPort: {{ .Values.apiGateway.containerPort }}
         env:
         - name: JAVA_OPTS
           value: '{{ .Values.apiGateway.javaOpts }}'
