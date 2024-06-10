@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: '{{ .Values.emailService.deploymentName }}'
+  name: {{ .Values.emailService.deploymentName }}
 spec:
-  replicas: '{{ .Values.emailService.replicaCount }}'
+  replicas: {{ .Values.emailService.replicaCount }}
   selector:
     matchLabels:
       app: email-service
