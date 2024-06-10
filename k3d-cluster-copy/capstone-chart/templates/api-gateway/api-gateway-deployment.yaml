@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.apiGateway.deploymentName }}
+  name: '{{ .Values.apiGateway.deploymentName }}'
 spec:
   replicas: '{{ .Values.apiGateway.replicaCount }}'
   selector:
