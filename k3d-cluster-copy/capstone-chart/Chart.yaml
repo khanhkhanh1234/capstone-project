@@ -1,3 +1,4 @@
+---
 apiVersion: v2
 name: capstone-chart
 description: A Helm chart for Capstone project

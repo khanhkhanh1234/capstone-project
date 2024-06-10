@@ -1,7 +1,10 @@
+---
 namespace: fleet-local
 helm:
   releaseName: capstone-chart
-  repo: https://khanhkhanh1234.github.io/capstone-project/k3d-cluster-copy/capstone-chart/index.yaml
+  repo: >
+    https://khanhkhanh1234.github.io/capstone-project/k3d-cluster-copy/
+    capstone-chart/index.yaml
   chart: capstone-chart
 
   clusterSelector:
