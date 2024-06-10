@@ -1,12 +1,13 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "capstone-chart.fullname" . }}
+  name: {{include "capstone-chart.fullname" .}}
   labels:
-    {{- include "capstone-chart.labels" . | nindent 4 }}
+    {{-include "capstone-chart.labels" . | nindent 4}}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
+  {{-if not .Values.autoscaling.enabled}}
+  replicas: {{.Values.replicaCount}}
   {{- end }}
   selector:
     matchLabels:
