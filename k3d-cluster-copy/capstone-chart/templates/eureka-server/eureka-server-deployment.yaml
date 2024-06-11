@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -13,15 +14,15 @@ spec:
         app: eureka-server
     spec:
       containers:
-      - name: eureka-server
-        image: '{{ .Values.eurekaServer.image }}'
-        ports:
-        - containerPort: 8761
-        env:
-        - name: JAVA_OPTS
-          value: '{{ .Values.eurekaServer.javaOpts }}'
-        resources:
-          requests:
-            cpu: "100m"
-          limits:
-            cpu: "300m"
+        - name: eureka-server
+          image: '{{ .Values.eurekaServer.image }}'
+          ports:
+            - containerPort: 8761
+          env:
+            - name: JAVA_OPTS
+              value: '{{ .Values.eurekaServer.javaOpts }}'
+          resources:
+            requests:
+              cpu: "100m"
+            limits:
+              cpu: "300m"

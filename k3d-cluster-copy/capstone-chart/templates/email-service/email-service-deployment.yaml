@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -13,11 +14,11 @@ spec:
         app: email-service
     spec:
       containers:
-      - name: email-service
-        image: '{{ .Values.emailService.image }}'
-        ports:
-        - containerPort: 8888
-          requests:
-            cpu: "100m"
-          limits:
-            cpu: "300m"
+        - name: email-service
+          image: '{{ .Values.emailService.image }}'
+          ports:
+            - containerPort: 8888
+              requests:
+                cpu: "100m"
+              limits:
+                cpu: "300m"
