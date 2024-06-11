@@ -9,4 +9,4 @@ spec:
   replicas: {{.Values.replicaCount}}
   selector:
     matchLabels:
-      {{ include "capstone-chart.selectorLabels" . | nindent 6 }}
+      {{include "capstone-chart.selectorLabels" . | nindent 6}}
