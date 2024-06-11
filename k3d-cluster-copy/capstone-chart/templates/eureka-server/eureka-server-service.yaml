@@ -5,8 +5,8 @@ metadata:
 spec:
   type: '{{ .Values.eurekaServer.serviceType }}'
   ports:
-  - port: '{{ .Values.eurekaServer.servicePort | int}}'
-    targetPort: '{{ .Values.eurekaServer.containerPort | int}}'
-    nodePort: '{{ .Values.eurekaServer.nodePort | int}}'
+  - port: '{{ .Values.eurekaServer.servicePort | int }}'
+    targetPort: '{{ .Values.eurekaServer.containerPort | int }}'
+    nodePort: '{{ .Values.eurekaServer.nodePort | int }}'
   selector:
     app: eureka-server

@@ -4,7 +4,7 @@ metadata:
   name: mongodb
 spec:
   ports:
-  - port: '{{ .Values.mongodb.servicePort | int}}'
-    targetPort: '{{ .Values.mongodb.containerPort | int}}'
+  - port: '{{ .Values.mongodb.servicePort | int }}'
+    targetPort: '{{ .Values.mongodb.containerPort | int }}'
   selector:
     app: mongodb
