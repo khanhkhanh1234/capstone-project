@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: '{{ .Values.emailService.deploymentName }}'
+  name: email-service
 spec:
   replicas: '{{ .Values.emailService.replicaCount }}'
   selector:
