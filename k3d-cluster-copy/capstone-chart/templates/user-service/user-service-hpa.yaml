@@ -8,7 +8,7 @@ spec:
     kind: Deployment
     name: '{{ .Values.userService.deploymentName }}'
   minReplicas: '{{ .Values.userService.hpaMinReplicas }}'
-  maxReplicas: {{ .Values.userService.hpaMaxReplicas }}
+  maxReplicas: '{{ .Values.userService.hpaMaxReplicas }}'
   metrics:
   - type: Resource
     resource:
