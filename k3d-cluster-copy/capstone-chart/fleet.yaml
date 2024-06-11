@@ -1,4 +1,5 @@
 ---
+namespace: fleet-local
 helm:
   releaseName: capstone-chart
   repo: >
