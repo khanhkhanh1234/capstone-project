@@ -5,8 +5,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: '{{ .Values.userService.servicePort | int }}'
-    targetPort: '{{ .Values.userService.containerPort | int }}'
-    nodePort: '{{ .Values.userService.nodePort | int }}'
+  - port: 8890
+    targetPort: 8890
+    nodePort: 30005
   selector:
     app: user-service

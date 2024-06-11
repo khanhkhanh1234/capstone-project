@@ -9,6 +9,6 @@ spec:
     app: frontend
   ports:
   - protocol: TCP
-    port: '{{ .Values.frontend.servicePort | int }}'
-    targetPort: '{{ .Values.frontend.containerPort | int }}'
-    nodePort: '{{ .Values.frontend.nodePort | int }}'
+    port: 80
+    targetPort: 80
+    nodePort: 30000

@@ -7,8 +7,8 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: '{{ .Values.eurekaServer.deploymentName }}'
-  minReplicas: '{{ .Values.eurekaServer.hpaMinReplicas | int}}'
-  maxReplicas: '{{ .Values.eurekaServer.hpaMaxReplicas | int}}'
+  minReplicas: 1
+  maxReplicas: 5
   metrics:
   - type: Resource
     resource:
