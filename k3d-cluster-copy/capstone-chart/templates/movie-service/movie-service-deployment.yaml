@@ -51,7 +51,7 @@ kind: Deployment
 metadata:
   name: '{{ .Values.movieService.deploymentName }}'
 spec:
-  replicas: '{{ .Values.movieService.replicaCount | int}}'
+  replicas: 1
   selector:
     matchLabels:
       app: movie-service
@@ -64,7 +64,7 @@ spec:
       - name: movie-service
         image: '{{ .Values.movieService.image }}'
         ports:
-        - containerPort: '{{ .Values.movieService.containerPort | int}}'
+        - containerPort: 8888
         resources:
           requests:
             cpu: "100m"

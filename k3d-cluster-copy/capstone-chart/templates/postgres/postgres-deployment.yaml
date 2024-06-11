@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: postgres
 spec:
-  replicas: '{{ .Values.postgres.replicaCount }}'
+  replicas: 1
   selector:
     matchLabels:
       app: postgres
@@ -25,7 +25,7 @@ spec:
         - name: PGDATA
           value: '{{ .Values.postgres.pgdata }}'
         ports:
-        - containerPort: '{{ .Values.postgres.containerPort | int }}'
+        - containerPort: 5432
         volumeMounts:
         - name: postgres-storage
           mountPath: /var/lib/postgresql/data

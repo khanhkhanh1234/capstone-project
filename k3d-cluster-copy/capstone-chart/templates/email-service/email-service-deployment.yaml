@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: email-service
 spec:
-  replicas: '{{ .Values.emailService.replicaCount | int }}'
+  replicas: 1
   selector:
     matchLabels:
       app: email-service
@@ -16,8 +16,7 @@ spec:
       - name: email-service
         image: '{{ .Values.emailService.image }}'
         ports:
-        - containerPort: '{{ .Values.emailService.containerPort | int }}'
-        resources:
+        - containerPort: 8888
           requests:
             cpu: "100m"
           limits:
