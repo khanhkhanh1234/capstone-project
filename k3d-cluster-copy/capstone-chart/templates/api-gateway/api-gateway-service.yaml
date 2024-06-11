@@ -6,8 +6,8 @@ metadata:
 spec:
   type: '{{ .Values.apiGateway.serviceType }}'
   ports:
-    - port: '{{ .Values.apiGateway.servicePort | int }}'
-      targetPort: '{{ .Values.apiGateway.containerPort | int }}'
-      nodePort: '{{ .Values.apiGateway.nodePort | int }}'
+  - port: '{{ .Values.apiGateway.servicePort | int }}'
+    targetPort: '{{ .Values.apiGateway.containerPort | int }}'
+    nodePort: '{{ .Values.apiGateway.nodePort | int }}'
   selector:
     app: api-gateway

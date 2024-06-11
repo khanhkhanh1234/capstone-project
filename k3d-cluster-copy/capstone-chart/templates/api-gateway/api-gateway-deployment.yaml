@@ -17,7 +17,7 @@ spec:
         - name: api-gateway
           image: '{{ .Values.apiGateway.image }}'
           ports:
-            - containerPort: '{{ .Values.apiGateway.containerPort | int }}'
+            - containerPort: '{{ .Values.apiGateway.containerPort }}'
           env:
             - name: JAVA_OPTS
               value: '{{ .Values.apiGateway.javaOpts }}'
