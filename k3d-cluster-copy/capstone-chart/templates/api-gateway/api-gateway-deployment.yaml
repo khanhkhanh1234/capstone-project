@@ -1,10 +1,9 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: '{{ .Values.apiGateway.deploymentName }}'
+  name: api-gateway
 spec:
-  replicas: '{{ .Values.apiGateway.replicaCount | int }}'
+  replicas: 1
   selector:
     matchLabels:
       app: api-gateway
@@ -14,15 +13,10 @@ spec:
         app: api-gateway
     spec:
       containers:
-        - name: api-gateway
-          image: '{{ .Values.apiGateway.image }}'
-          ports:
-            - containerPort: '{{ .Values.apiGateway.containerPort }}'
-          env:
-            - name: JAVA_OPTS
-              value: '{{ .Values.apiGateway.javaOpts }}'
-          resources:
-            requests:
-              cpu: "100m"
-            limits:
-              cpu: "500m"
+      - name: api-gateway
+        image: quockhanh107/api-gateway:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: JAVA_OPTS
+          value: "-Deureka.instance.preferIpAddress=true"
