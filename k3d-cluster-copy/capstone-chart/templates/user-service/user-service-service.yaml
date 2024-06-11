@@ -5,7 +5,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: '{{ .Values.userService.servicePort | int }}'
+  - port: {{ .Values.userService.servicePort | int }}
     targetPort: '{{ .Values.userService.containerPort | int }}'
     nodePort: '{{ .Values.userService.nodePort | int }}'
   selector:
