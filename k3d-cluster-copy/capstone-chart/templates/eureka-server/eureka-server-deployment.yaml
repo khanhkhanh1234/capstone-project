@@ -21,8 +21,8 @@ spec:
           env:
             - name: JAVA_OPTS
               value: '{{ .Values.eurekaServer.javaOpts }}'
-          resources:
-            requests:
-              cpu: "100m"
-            limits:
-              cpu: "300m"
+          # resources:
+          #   requests:
+          #     cpu: "100m"
+          #   limits:
+          #     cpu: "300m"

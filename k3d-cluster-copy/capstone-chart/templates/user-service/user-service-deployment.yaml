@@ -18,8 +18,8 @@ spec:
           image: '{{ .Values.userService.image }}'
           ports:
             - containerPort: 8890
-          resources:
-            requests:
-              cpu: "100m"
-            limits:
-              cpu: "300m"
+          # resources:
+          #   requests:
+          #     cpu: "100m"
+          #   limits:
+          #     cpu: "300m"
