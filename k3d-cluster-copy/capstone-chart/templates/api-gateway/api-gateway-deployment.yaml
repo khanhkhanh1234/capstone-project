@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: '{{ .Values.apiGateway.deploymentName }}'
 spec:
-  replicas: '{{ .Values.apiGateway.replicaCount | int }}'
+  replicas: {{ .Values.apiGateway.replicaCount | int }}
   selector:
     matchLabels:
       app: api-gateway
@@ -17,7 +17,7 @@ spec:
         - name: api-gateway
           image: '{{ .Values.apiGateway.image }}'
           ports:
-            - containerPort: '{{ .Values.apiGateway.containerPort | int }}'
+            - containerPort: {{ .Values.apiGateway.containerPort | int }}
           env:
             - name: JAVA_OPTS
               value: '{{ .Values.apiGateway.javaOpts }}'
