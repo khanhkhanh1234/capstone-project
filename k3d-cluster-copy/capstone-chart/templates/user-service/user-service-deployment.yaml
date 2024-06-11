@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -13,12 +14,12 @@ spec:
         app: user-service
     spec:
       containers:
-      - name: user-service
-        image: '{{ .Values.userService.image }}'
-        ports:
-        - containerPort: 8890
-        resources:
-          requests:
-            cpu: "100m"
-          limits:
-            cpu: "300m"
+        - name: user-service
+          image: '{{ .Values.userService.image }}'
+          ports:
+            - containerPort: 8890
+          resources:
+            requests:
+              cpu: "100m"
+            limits:
+              cpu: "300m"

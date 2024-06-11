@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -7,13 +8,13 @@ spec:
   selector:
     matchLabels:
       app: frontend
-  template:
-    metadata:
-      labels:
-        app: frontend
+    template:
+      metadata:
+        labels:
+          app: frontend
     spec:
       containers:
-      - name: frontend
-        image: '{{ .Values.frontend.image }}'
-        ports:
-        - containerPort: 80
+        - name: frontend
+          image: '{{ .Values.frontend.image }}'
+          ports:
+            - containerPort: 80

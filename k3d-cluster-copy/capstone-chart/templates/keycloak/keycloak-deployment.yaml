@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -13,13 +14,13 @@ spec:
         app: keycloak
     spec:
       containers:
-      - name: keycloak
-        image: quay.io/keycloak/keycloak:18.0.2
-        env:
-        - name: KEYCLOAK_ADMIN
-          value: "admin"
-        - name: KEYCLOAK_ADMIN_PASSWORD
-          value: "admin"
-        ports:
-        - containerPort: 8081
-        args: ["start-dev"]
+        - name: keycloak
+          image: quay.io/keycloak/keycloak:18.0.2
+          env:
+            - name: KEYCLOAK_ADMIN
+              value: "admin"
+            - name: KEYCLOAK_ADMIN_PASSWORD
+              value: "admin"
+          ports:
+            - containerPort: 8081
+              args: ["start-dev"]

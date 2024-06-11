@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -13,19 +14,19 @@ spec:
         app: mongodb
     spec:
       containers:
-      - name: mongodb
-        image: '{{ .Values.mongodb.image }}'
-        env:
-        - name: MONGO_INITDB_ROOT_USERNAME
-          value: '{{ .Values.mongodb.rootUsername }}'
-        - name: MONGO_INITDB_ROOT_PASSWORD
-          value: '{{ .Values.mongodb.rootPassword }}'
-        ports:
-        - containerPort: 27017
-        volumeMounts:
-        - name: mongo-storage
-          mountPath: /data/db
-      volumes:
-      - name: mongo-storage
-        persistentVolumeClaim:
-          claimName: mongo-pvc
+        - name: mongodb
+          image: '{{ .Values.mongodb.image }}'
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: '{{ .Values.mongodb.rootUsername }}'
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: '{{ .Values.mongodb.rootPassword }}'
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: mongo-storage
+              mountPath: /data/db
+          volumes:
+            - name: mongo-storage
+              persistentVolumeClaim:
+                claimName: mongo-pvc
