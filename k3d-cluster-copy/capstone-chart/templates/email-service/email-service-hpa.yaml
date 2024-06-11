@@ -7,8 +7,8 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: '{{ .Values.emailService.deploymentName }}'
-  minReplicas: '{{ .Values.emailService.hpaMinReplicas }}'
-  maxReplicas: '{{ .Values.emailService.hpaMaxReplicas }}'
+  minReplicas: '{{ .Values.emailService.hpaMinReplicas | int }}'
+  maxReplicas: '{{ .Values.emailService.hpaMaxReplicas | int }}'
   metrics:
   - type: Resource
     resource:

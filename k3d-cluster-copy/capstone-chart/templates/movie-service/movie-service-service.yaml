@@ -5,8 +5,8 @@ metadata:
 spec:
   type: '{{ .Values.movieService.serviceType }}'
   ports:
-  - port: '{{ .Values.movieService.servicePort }}'
-    targetPort: '{{ .Values.movieService.containerPort }}'
-    nodePort: '{{ .Values.movieService.nodePort }}'
+  - port: '{{ .Values.movieService.servicePort | int }}'
+    targetPort: '{{ .Values.movieService.containerPort | int }}'
+    nodePort: '{{ .Values.movieService.nodePort | int }}'
   selector:
     app: movie-service

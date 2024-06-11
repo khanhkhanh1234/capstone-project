@@ -5,8 +5,8 @@ metadata:
 spec:
   type: '{{ .Values.emailService.serviceType }}'
   ports:
-  - port: '{{ .Values.emailService.servicePort }}'
-    targetPort: '{{ .Values.emailService.containerPort }}'
-    nodePort: '{{ .Values.emailService.nodePort }}'
+  - port: '{{ .Values.emailService.servicePort | int }}'
+    targetPort: '{{ .Values.emailService.containerPort | int }}'
+    nodePort: '{{ .Values.emailService.nodePort | int }}'
   selector:
     app: email-service

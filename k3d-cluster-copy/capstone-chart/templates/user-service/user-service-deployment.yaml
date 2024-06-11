@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: '{{ .Values.userService.deploymentName }}'
 spec:
-  replicas: '{{ .Values.userService.replicaCount }}'
+  replicas: '{{ .Values.userService.replicaCount | int }}'
   selector:
     matchLabels:
       app: user-service
@@ -16,7 +16,7 @@ spec:
       - name: user-service
         image: '{{ .Values.userService.image }}'
         ports:
-        - containerPort: '{{ .Values.userService.containerPort }}'
+        - containerPort: '{{ .Values.userService.containerPort | int }}'
         resources:
           requests:
             cpu: "100m"

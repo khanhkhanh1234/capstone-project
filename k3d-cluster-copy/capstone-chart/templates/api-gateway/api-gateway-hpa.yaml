@@ -8,8 +8,8 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: '{{ .Values.apiGateway.deploymentName }}'
-  minReplicas: '{{ .Values.apiGateway.hpaMinReplicas }}'
-  maxReplicas: '{{ .Values.apiGateway.hpaMaxReplicas }}'
+  minReplicas: '{{ .Values.apiGateway.hpaMinReplicas | int }}'
+  maxReplicas: '{{ .Values.apiGateway.hpaMaxReplicas | int }}'
   metrics:
     - type: Resource
       resource:
