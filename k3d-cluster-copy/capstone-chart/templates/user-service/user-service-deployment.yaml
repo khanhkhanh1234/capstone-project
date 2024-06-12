@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: '{{ .Values.userService.deploymentName }}'
 spec:
-  replicas: '{{ .Values.userService.replicaCount }}'
+  replicas: 1
   selector:
     matchLabels:
       app: user-service

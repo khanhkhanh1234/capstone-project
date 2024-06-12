@@ -6,7 +6,6 @@ helm:
     https://khanhkhanh1234.github.io/capstone-project/k3d-cluster-copy/
     capstone-chart/index.yaml
   chart: capstone-chart
-
   clusterSelector:
     matchLabels:
       name: local

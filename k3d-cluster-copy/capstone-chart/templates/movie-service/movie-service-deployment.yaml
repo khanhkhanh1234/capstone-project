@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: '{{ .Values.movieService.deploymentName }}'
 spec:
-  replicas: '{{ .Values.movieService.replicaCount }}'
+  replicas: 1
   selector:
     matchLabels:
       app: movie-service
