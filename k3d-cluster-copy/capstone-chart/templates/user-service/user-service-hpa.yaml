@@ -16,7 +16,3 @@ spec:
       target:
         type: Utilization
         averageUtilization: 50
-      requests:
-        cpu: "200m"
-      limits:
-        cpu: "500m"

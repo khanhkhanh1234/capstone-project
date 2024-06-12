@@ -20,3 +20,8 @@ spec:
         env:
         - name: JAVA_OPTS
           value: "-Deureka.instance.preferIpAddress=true"
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "300m"
