@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: '{{ .Values.movieService.serviceName }}'
+  name: movie-service
 spec:
-  type: '{{ .Values.movieService.serviceType }}'
+  type: NodePort
   ports:
   - port: 8888
     targetPort: 8888

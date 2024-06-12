@@ -1,12 +1,12 @@
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: '{{ .Values.movieService.hpaName }}'
+  name: movie-service-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: '{{ .Values.movieService.deploymentName }}'
+    name: movie-service
   minReplicas: 1
   maxReplicas: 5
   metrics:

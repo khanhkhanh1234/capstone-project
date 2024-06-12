@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: '{{ .Values.frontend.deploymentName }}'
+  name: frontend
 spec:
   replicas: 1
   selector:
@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: '{{ .Values.frontend.image }}'
+        image: quockhanh107/frontend:latest
         ports:
         - containerPort: 80

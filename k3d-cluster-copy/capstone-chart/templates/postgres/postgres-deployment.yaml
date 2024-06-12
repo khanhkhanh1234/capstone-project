@@ -14,16 +14,16 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: '{{ .Values.postgres.image }}'
+        image: postgres
         env:
         - name: POSTGRES_USER
-          value: '{{ .Values.postgres.username }}'
+          value: postgres
         - name: POSTGRES_PASSWORD
-          value: '{{ .Values.postgres.password }}'
+          value: 12345
         - name: POSTGRES_DB
-          value: '{{ .Values.postgres.database }}'
+          value: cine_vision
         - name: PGDATA
-          value: '{{ .Values.postgres.pgdata }}'
+          value: /var/lib/postgresql/data/pgdata
         ports:
         - containerPort: 5432
         volumeMounts:

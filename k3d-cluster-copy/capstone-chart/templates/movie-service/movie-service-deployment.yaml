@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: '{{ .Values.movieService.deploymentName }}'
+  name: movie-service
 spec:
   replicas: 1
   selector:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: movie-service
-        image: '{{ .Values.movieService.image }}'
+        image: quockhanh107/movie-service:latest
         ports:
         - containerPort: 8888
         resources:

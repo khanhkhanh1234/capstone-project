@@ -2,12 +2,12 @@
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: '{{ .Values.apigateway.hpaname }}'
+  name: api-gateway-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: '{{.Values.apiGateway.deploymentName}}'
+    name: api-gateway
   minReplicas: 1
   maxReplicas: 5
   metrics:

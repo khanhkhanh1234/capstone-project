@@ -1,12 +1,12 @@
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: '{{ .Values.emailService.hpaName }}'
+  name: email-service-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: '{{ .Values.emailService.deploymentName }}'
+    name: email-service
   minReplicas: 1
   maxReplicas: 5
   metrics:

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: '{{ .Values.eurekaServer.deploymentName }}'
+  name: eureka-server
 spec:
   replicas: 1
   selector:
@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
       - name: eureka-server
-        image: '{{ .Values.eurekaServer.image }}'
+        image: quockhanh107/eureka-server:latest
         ports:
         - containerPort: 8761
         env:
         - name: JAVA_OPTS
-          value: '{{ .Values.eurekaServer.javaOpts }}'
+          value: "-Deureka.instance.preferIpAddress=true"
         resources:
           requests:
             cpu: "100m"
