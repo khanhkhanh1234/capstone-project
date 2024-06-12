@@ -12,22 +12,6 @@ options:
       - arg: "--service-node-port-range=2500-40000"
         nodeFilters:
           - "server:*"
-# registries:
-#   create:
-#     name: registry.local
-#     host: "0.0.0.0"
-#     hostPort: "5000"
-#     image: docker.io/library/registry:2
-#     volumes:
-#       - /tmp/reg:/var/lib/registry
-#     # proxy:
-#     #   remoteURL: https://registry-1.docker.io # proxy DockerHub
-#   config: | # Tell k3s to use the local registry
-#     mirrors:
-#       "docker.io":
-#         endpoint:
-#           - "http://registry.local:5000"
-# Mapports is used to expose ports from the cluster to the host machine
 ports:
   - port: 0.0.0.0:80:80
     nodeFilters:

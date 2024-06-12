@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: api-gateway
 spec:
-  replicas: 1
+  replicas: {{ .Values.apiGateway.replicaCount }}
   selector:
     matchLabels:
       app: api-gateway

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: email-service
 spec:
-  replicas: 1
+  replicas: {{ .Values.emailService.replicaCount }}
   selector:
     matchLabels:
       app: email-service
