@@ -15,7 +15,7 @@ spec:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: {{ .Values.movieService.hpaCpuUtilization }}
+        averageUtilization: '{{ .Values.movieService.hpaCpuUtilization }}'
   behavior:
     scaleUp:
       stabilizationWindowSeconds: 5

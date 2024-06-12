@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: '{{ .Values.eurekaServer.deploymentName }}'
 spec:
-  replicas: {{ .Values.eurekaServer.replicaCount }}
+  replicas: '{{ .Values.eurekaServer.replicaCount }}'
   selector:
     matchLabels:
       app: eureka-server
