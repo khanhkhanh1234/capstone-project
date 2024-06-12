@@ -123,7 +123,7 @@ apiGateway:
   serviceType: NodePort
   servicePort: 8080
   nodePort: 8080
-  hpaName: "api-gateway-hpa"
+  hpaName: "apigatewayhpa"
   hpaMinReplicas: 1
   hpaMaxReplicas: 15
   hpaCpuUtilization: 50
