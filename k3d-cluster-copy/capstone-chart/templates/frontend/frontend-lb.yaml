@@ -3,9 +3,14 @@ kind: Ingress
 metadata:
   name: my-app-ingress
   namespace: default
-
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - frontend.quockhanhtech.io.vn
+    secretName: frontend-quockhanhtech-tls
   rules:
   - host: frontend.quockhanhtech.io.vn
     http:
