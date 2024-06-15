@@ -14,10 +14,13 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: frontend-service
+            name: nginx-svc
             port:
               number: 80
 #   tls:
 #   - hosts:
 #     - frontend.quockhanhtech.io.vn
 #     secretName: myapp-tls
+
+
+
