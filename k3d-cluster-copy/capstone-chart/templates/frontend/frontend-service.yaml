@@ -4,11 +4,11 @@ metadata:
   name: frontend-service
   namespace: default
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: frontend
   ports:
     - protocol: TCP
       port: 80          # Port exposed by the service
       targetPort: 80  # Port on which your application is running inside the container
-      nodePort: 30100   # Port on the node
+      # nodePort: 30100   # Port on the node
