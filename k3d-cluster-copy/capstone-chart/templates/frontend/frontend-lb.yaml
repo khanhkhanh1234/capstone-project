@@ -3,9 +3,9 @@ kind: Ingress
 metadata:
   name: my-app-ingress
   namespace: default
-#   annotations:
-#     nginx.ingress.kubernetes.io/ssl-redirect: "true"
+
 spec:
+  ingressClassName: nginx
   rules:
   - host: frontend.quockhanhtech.io.vn
     http:
@@ -14,13 +14,13 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: nginx-svc
+            name: frontend-service
             port:
               number: 80
-#   tls:
-#   - hosts:
-#     - frontend.quockhanhtech.io.vn
-#     secretName: myapp-tls
-
-
-
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: api-gateway
+            port:
+              number: 8080
