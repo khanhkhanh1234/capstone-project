@@ -11,3 +11,7 @@ k3d/vagrant/worker1/.vagrant
 k3d/vagrant/worker2/.vagrant
 k3d-cluster/.vagrant
 k3d-cluster-copy/foster-enclave.ovpn
+k3d-cluster-copy/aws
+k3d-cluster-copy/awscliv2.zip
+k3d-cluster-copy/awscliv2.pkg
+k3d-cluster-copy/terraform

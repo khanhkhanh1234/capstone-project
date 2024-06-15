@@ -17,3 +17,8 @@ spec:
         image: quockhanh107/user-service:latest
         ports:
         - containerPort: 8890
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "300m"
