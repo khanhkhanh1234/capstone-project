@@ -44,12 +44,12 @@ export default function MainPage() {
                     <div class="container px-5">
                         <h1 class="masthead-heading mb-0">CineVision</h1>
                         <h2 class="masthead-subheading mb-0">
-                            CineVision ile Film Keyfini Kaçırma
+                            Don't Miss the Movie Fun with CineVision
                         </h2>
                         <h2 class="mt-3">
-                            Vizyondaki en yeni filmler CineVision Sinema Salonlarında
+                            The latest movies in theaters at CineVision Cinemas
                         </h2>
-                        <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Filmler</a>
+                        <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Movies</a>
                     </div>
                 </div>
                 <div class="bg-circle-1 bg-circle"></div>
@@ -93,7 +93,7 @@ export default function MainPage() {
                         role="tab" aria-controls="pills-home" aria-selected="true"
                         onClick={() => {
                             getMovies(false)
-                        }}>Vizyonda</button>
+                        }}>In theaters</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
@@ -101,7 +101,7 @@ export default function MainPage() {
                     type="button" role="tab" aria-controls="pills-profile" aria-selected="false"
                     onClick={() => {
                         getMovies(true)
-                    }}>Yakında</button>
+                    }}>Soon</button>
                 </li>
             </ul>
         </div>
@@ -128,11 +128,11 @@ export default function MainPage() {
                                 <div class="p-2 d-grid gap-2">
                                     <a class="slider-button btn btn-light btn-md rounded d-none d-sm-block"
                                         onClick={()=> navigate("/movie/" + movie.movieId)}>
-                                        <strong>Yorum Yap </strong>
+                                        <strong>Comment </strong>
                                     </a>
                                     <a class="slider-button btn btn-light btn-md rounded d-none d-sm-block"
                                         onClick={()=> navigate("/movie/" + movie.movieId)}>
-                                        <strong> Bilet Al </strong>
+                                        <strong> Ticket Al </strong>
                                     </a>
                                 </div>
                             

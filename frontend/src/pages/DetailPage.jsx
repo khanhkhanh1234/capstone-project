@@ -108,7 +108,7 @@ export default function DetailPage() {
                     if(result.status == 200) {
                         document.querySelector("#commentArea").value = "";
                         setComments([...comments, result.data])
-                        toast.success("Yorumunuz eklendi!", {
+                        toast.success("Your comment has been added!", {
                             theme: "light",
                             position: "top-center"
                         });
@@ -116,13 +116,13 @@ export default function DetailPage() {
                 })
 
             } else {
-                toast.warning("Yorumunuz boş olamaz!", {
+                toast.warning("Your comment cannot be empty!", {
                     theme: "light",
                     position: "top-center"
                 });
             }
         } else {
-            toast.error("Yorum yapmak için lütfen giriş yapın!", {
+            toast.error("Please login to leave a comment!", {
                 theme: "light",
                 position: "top-center"
             });
@@ -166,7 +166,7 @@ export default function DetailPage() {
                                         document.querySelector("#ticketBuy").scrollIntoView({
                                             behavior: "smooth"
                                         })
-                                    }}><strong>Bilet Al </strong></button>
+                                    }}><strong>Ticket Al </strong></button>
                                 
                             </div>
                             <div className='col-sm-4'>
@@ -175,12 +175,12 @@ export default function DetailPage() {
                                         document.querySelector("#commentSection").scrollIntoView({
                                             behavior: "smooth"
                                         })
-                                    }}><strong>Yorum Yap</strong></button>
+                                    }}><strong>Comment</strong></button>
 
                             </div>
                             <div className='col-sm-4'>
                                 <button class="detail-page-btn btn btn-light btn-lg col-12" type="button"
-                                    data-bs-toggle="modal" data-bs-target="#movieTrailerModal"><strong>Fragman</strong></button>
+                                    data-bs-toggle="modal" data-bs-target="#movieTrailerModal"><strong>Fragment</strong></button>
 
                             </div>
                         </div>
@@ -212,12 +212,12 @@ export default function DetailPage() {
             <div className='container'>
                 <div className='row justify-content-between ms-0 ms-md-5 ps-0 ps-md-5'>
                     <div className='col-sm-4 text-start'>
-                        <p> <strong> Vizyon Tarihi: </strong> {dateConvert( movie.releaseDate) }</p>
-                        <p> <strong>Süre: </strong>{movie.duration} Dakika</p>
-                        <p><strong>Tür: </strong>{movie.categoryName}</p>
+                        <p> <strong> Vision date: </strong> {dateConvert( movie.releaseDate) }</p>
+                        <p> <strong>Duration: </strong>{movie.duration} Dakika</p>
+                        <p><strong>Type: </strong>{movie.categoryName}</p>
                     </div>
                     <div className='col-sm-8 text-start'>
-                        <p><strong>Konu: </strong>{movie.description}</p>
+                        <p><strong>Subject: </strong>{movie.description}</p>
                     </div>
                 </div>
             </div>
@@ -228,12 +228,12 @@ export default function DetailPage() {
             <div className='container bg-primary rounded'>
                 <div className='row p-5'>
                     <div className='col-sm-4 mt-2 text-sm-start text-md-end text-light'>
-                        <h2>Bilet Al</h2>
+                        <h2>Ticket Al</h2>
                     </div>
                     <div className='col-sm-8 ps-3 mt-2'>
                         <button type="button" class="select-saloon-button btn btn-primary col-12"
                          data-bs-toggle="modal" data-bs-target="#saloonModal">
-                            <strong>Sinema Seç</strong> <i class="fa-solid fa-caret-down"></i>
+                            <strong>Choose Cinema</strong> <i class="fa-solid fa-caret-down"></i>
                         </button>
                     </div>
                 </div>
@@ -283,11 +283,11 @@ export default function DetailPage() {
             <div className='container'>
                 <div className='row gy-2 justify-content-start align-items-start'>
                     <div className='col-sm-12 col-md-6 text-start'>
-                       <h3>Yorumlar</h3>
+                       <h3>Comments</h3>
                        {/* Yorumları listele */}
                        <div style={{height: "200px", overflow:"scroll",overflowX: "hidden"}}>
                             {comments.length == 0 ? (
-                                <p className='lead mt-4'>İlk Yorumu sen yaz</p>
+                                <p className='lead mt-4'>Be the first to comment</p>
                             ): null}
 
                             {comments.map(comment => (
@@ -314,7 +314,7 @@ export default function DetailPage() {
                                         onClick={() => {
                                             getComments(movieId, currentPage + 1)
                                             setCurrentPage(currentPage+1)
-                                        }}>Daha fazla göster</a>
+                                        }}>Show more</a>
                                 : null}
                             </div> 
                        </div>
@@ -322,9 +322,9 @@ export default function DetailPage() {
 
                     </div>
                     <div className='col-sm-12 col-md-6 text-start'>
-                        <h3>Yorum Yap</h3>
-                            <textarea id="commentArea" className='text-dark mb-3' placeholder='Yorumunuz' onChange={(e) => setCommentText(e.target.value)} ></textarea>
-                            <button class="comment-btn btn btn-dark btn-lg col-12" type="button" onClick={() => sendCommentText()}><strong>Gönder</strong></button>
+                        <h3>Comment</h3>
+                            <textarea id="commentArea" className='text-dark mb-3' placeholder='Your comment' onChange={(e) => setCommentText(e.target.value)} ></textarea>
+                            <button class="comment-btn btn btn-dark btn-lg col-12" type="button" onClick={() => sendCommentText()}><strong>Send</strong></button>
                     </div>
                 </div>
             </div>
@@ -333,7 +333,7 @@ export default function DetailPage() {
         {/* Other Movies */}
         <section className='p-5'>
             
-            <h3 className='text-center mb-4'>Vizyondaki Diğer Filmler</h3>
+            <h3 className='text-center mb-4'>Other Movies in Theaters</h3>
             <Swiper
                 slidesPerView={5}
                 spaceBetween={0}
@@ -361,14 +361,14 @@ export default function DetailPage() {
                                                 navigate("/movie/" + movie.movieId)
                                                 getNewVisionMovie(movie.movieId);
                                             }}>
-                                            <strong>Yorum Yap </strong>
+                                            <strong>Comment </strong>
                                         </a>
                                         <a class="slider-button btn btn-light btn-md rounded d-none d-sm-block"
                                             onClick={()=> {
                                                 navigate("/movie/" + movie.movieId)
                                                 getNewVisionMovie(movie.movieId);
                                             }}>
-                                            <strong> Bilet Al </strong>
+                                            <strong> Ticket Al </strong>
                                         </a>
                                     </div>
                                 
@@ -389,7 +389,7 @@ export default function DetailPage() {
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="movieTrailerLabel">Fragman</h5>
+                    <h5 class="modal-title" id="movieTrailerLabel">Fragment</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => {
                         let player = document.getElementById("videoPlayer").getAttribute("src");
                         document.getElementById("videoPlayer").setAttribute("src", player);
@@ -410,7 +410,7 @@ export default function DetailPage() {
             <div class="modal-dialog modal-sm modal-dialog-centered modal-dialog-scrollable" >
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="saloonModalLabel">Şehir Seç</h5>
+                        <h5 class="modal-title" id="saloonModalLabel">Select City</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
