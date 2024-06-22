@@ -23,7 +23,7 @@ export default function LoginModal() {
                 let closeButton = document.getElementById("close-button");
                 closeButton.click();
 
-                toast("Hoşgeldiniz!", {
+                toast("Welcome!", {
                     theme: "colored",
                     position: "top-center"
                 })
@@ -43,7 +43,7 @@ export default function LoginModal() {
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                 <div class="modal-header login-modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Giriş</h5>
+                    <h5 class="modal-title" id="loginModalLabel">Entrance</h5>
                     <button id='close-button' type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                     <Formik
@@ -58,17 +58,17 @@ export default function LoginModal() {
                                     <label for="floatingInput">Email</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <KaanKaplanTextInput id="password" type="password" name="password" class="form-control" placeholder="Şifre" required />
-                                    <label for="floatingPassword">Şifre</label>
+                                    <KaanKaplanTextInput id="password" type="password" name="password" class="form-control" placeholder="Password" required />
+                                    <label for="floatingPassword">Password</label>
                                 </div>
                                 <p className='ps-2 text-start'>
-                                    CineVision üyeliğiniz yok mu?
+                                Don't have a CineVision subscription?
                                     <a href='!#' style={{color:"black"}}
-                                        data-bs-toggle="modal" data-bs-target="#registerModal"> Hemen Üye Ol </a>
+                                        data-bs-toggle="modal" data-bs-target="#registerModal"> Sign Up Now </a>
                                 </p>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary login-modal-btn">Giriş Yap</button>
+                                <button type="submit" class="btn btn-primary login-modal-btn">Login</button>
                             </div>
                         </Form>
                     </Formik>

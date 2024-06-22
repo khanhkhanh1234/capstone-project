@@ -98,7 +98,7 @@ export default function AddMoviePage() {
                     <label for="floatingPassword">Summary of the film</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <KaanKaplanTextInput  name='duration' type="number" class="form-control" id="duration" placeholder="Süre" />
+                    <KaanKaplanTextInput  name='duration' type="number" class="form-control" id="duration" placeholder="Duration" />
                     <label for="duration">Movie Duration</label>
                 </div>
                 <div class="form-floating mb-3">
