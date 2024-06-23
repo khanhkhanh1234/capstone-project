@@ -17,15 +17,6 @@ spec:
         type: Utilization
         averageUtilization: 80
   behavior:
-    scaleUp:
-      stabilizationWindowSeconds: 5
-      policies:
-      - type: Pods
-        value: 2
-        periodSeconds: 5
-      - type: Percent
-        value: 100
-        periodSeconds: 5
     scaleDown:
       stabilizationWindowSeconds: 120  
       policies:
