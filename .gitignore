@@ -18,4 +18,4 @@ k3d-cluster-copy/terraform
 k3d-cluster-copy/terraform_0.12.29_linux_amd64.zip
 k3d-cluster-copy/terraform/main.tf
 test.txt
-locust/
+locust/*
