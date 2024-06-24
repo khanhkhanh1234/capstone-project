@@ -23,6 +23,7 @@ spec:
       - type: Pods
         value: 1
         periodSeconds: 1
+      selectPolicy: Min
     scaleDown:
       stabilizationWindowSeconds: 180  
       policies:
@@ -32,3 +33,4 @@ spec:
       - type: Percent
         value: 30
         periodSeconds: 60
+      selectPolicy: Max
