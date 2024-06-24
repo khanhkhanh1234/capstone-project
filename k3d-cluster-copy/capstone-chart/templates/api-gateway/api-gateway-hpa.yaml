@@ -18,12 +18,11 @@ spec:
         averageUtilization: 80
   behavior:
     scaleUp:
-      stabilizationWindowSeconds: 60
+      stabilizationWindowSeconds: 120
       policies:
       - type: Pods
         value: 1
         periodSeconds: 1
-      selectPolicy: Disabled
     scaleDown:
       stabilizationWindowSeconds: 180  
       policies:
@@ -33,4 +32,3 @@ spec:
       - type: Percent
         value: 30
         periodSeconds: 60
-      selectPolicy: Max
