@@ -23,7 +23,7 @@ spec:
       - type: Pods
         value: 1
         periodSeconds: 1
-      selectPolicy: Min
+      selectPolicy: Disabled
     scaleDown:
       stabilizationWindowSeconds: 180  
       policies:
